@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {% for commit in commits %}
+        <p>{{ commit.sha }}
+        <article class="post">
+            <h2>
+                <a href="{{ path('commit', {slug: commit.sha}) }}">
+                    {{ commit.sha }} bite
+                </a>
+            </h2>
+            <?php echo('bite') ?>
+
+            <p class="post-metadata">
+                <span class="metadata"><i class="fa fa-calendar"></i> {{ commit.commit.committer.date }}</span>
+                <span class="metadata"><i class="fa fa-user"></i> {{ commit.commit.committer.name }}</span>
+            </p>
+
+            {{ commit.commit.message }}
+
+        </article>
+    {% endfor %}
+{% endblock %}

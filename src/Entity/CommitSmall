@@ -1,0 +1,126 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+
+class CommitSmall
+{
+    public function __construct(UserSmall $author, UserSmall $committer, string $message, Tree $tree, string $url, int $commentCount, Verification $verification)
+    {
+        $this->author = $author;
+        $this->committer = $committer;
+        $this->message = $message;
+        $this->tree = $tree;
+        $this->url = $url;
+        $this->commentCount = $commentCount;
+        $this->verification = $verification;
+    }
+
+    /**
+     * @var UserSmall
+     */
+    private $author;
+
+    /**
+     * @var UserSmall
+     */
+    private $committer;
+
+    /**
+     * @var string
+     */
+    private $message;
+
+    /**
+     * @var Tree
+     */
+    private $tree;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+    /**
+     * @var int
+     */
+    private $commentCount;
+
+    /**
+     * @var Verification
+     */
+    private $verification;
+
+    public function getAuthor(): UserSmall
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(UserSmall $author): void
+    {
+        $this->author = $author;
+    }
+
+    public function getCommitter(): UserSmall
+    {
+        return $this->committer;
+    }
+    
+    public function setCommitter(UserSmall $committer): void
+    {
+        $this->committer = $committer;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): void
+    {
+        $this->message = $message;
+    }
+
+    public function getTree(): Tree
+    {
+        return $this->tree;
+    }
+
+    public function setTree(Tree $tree): void
+    {
+        $this->tree = $tree;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
+
+    public function getCommentCount(): ?int
+    {
+        return $this->commentCount;
+    }
+
+    public function setCommentCount(int $commentCount): void
+    {
+        $this->commentCount = $commentCount;
+    }
+
+    public function getVerification(): Verification
+    {
+        return $this->verification;
+    }
+
+    public function setVerification(Verification $verification): void
+    {
+        $this->verification = $verification;
+    }
+}
